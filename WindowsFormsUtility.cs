@@ -105,6 +105,17 @@ namespace CPUWindowsFormsFramework
             grid.Columns.Insert(0, c);
         }
 
+        public static void AddComboBoxToGridForRecipe(DataGridView grid, DataTable datasource, string tablename, string displaymember)
+        {
+            DataGridViewComboBoxColumn c = new();
+            c.DataSource = datasource;
+            c.DisplayMember = displaymember;
+            c.ValueMember = tablename;
+            c.DataPropertyName = c.ValueMember;
+            c.HeaderText = tablename;
+            grid.Columns.Insert(0, c);
+        }
+
         public static void AddDeleteButtonToGrid(DataGridView grid, string deletecolname)
         {
             grid.Columns.Add(new DataGridViewButtonColumn() { Text = "X", HeaderText = "Delete", Name = deletecolname, UseColumnTextForButtonValue = true });
